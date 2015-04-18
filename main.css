@@ -1,0 +1,18 @@
+header {
+	background-color: #A6C2F5;
+	font-size: 25px;
+	color: #fffaf0;
+	padding: 30px 0 0 30px;
+	height: 100px;
+}
+
+.parentList {
+	margin: 0px 50px 0px 5px;
+}
+
+.agenda {
+	background-color: red;
+	list-style: none;
+	padding: 0 0 0 10px;
+	margin: 0 0 0 30px;
+}
