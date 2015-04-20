@@ -1,84 +1,66 @@
 
 
 
- var getToday = new Date() ;
- var firstDay = getToday.getDay();
- console.log("getToday " + getToday);
- console.log("first day " + firstDay);
+//  var getToday = new Date() ;
+//  var firstDay = getToday.getDay();
+//  //console.log("getToday " + getToday);
+//  //console.log("first day " + firstDay);
 
-var weekArray = ["Sun  ", "Mon  ", "Tues ", "Wed  ", "Thurs", "Fri  ", "Sat"];
-var indexArray = [0,1,2,3,4,5,6];
+// var weekArray = ["Sunday ", "Monday ", "Tuesday ", "Wednesday ", "Thursday ", "Friday ", "Saturday "];
 
-//var newArray = weekArray.slice(0,1);
- for(var i = 0; i < firstDay; i++){
-var shift = weekArray.shift();
-weekArray.push(shift);
-}
 
-console.log(weekArray);
+// var newArray = weekArray.slice(0,1);
+//  for(var i = 0; i < firstDay; i++){
+// var shift = weekArray.shift();
+// weekArray.push(shift);
+// }
 
-var indexMatch = _.object(indexArray, weekArray);
-console.log(indexMatch);
-$(".day1").prepend(indexMatch[0]);
-$(".day2").prepend(indexMatch[1]);
-$(".day3").prepend(indexMatch[2]);
-$(".day4").prepend(indexMatch[3]);
-$(".day5").prepend(indexMatch[4]);
-$(".day6").prepend(indexMatch[5]);
-$(".day7").prepend(indexMatch[6]);
+// console.log(weekArray);
 
-$(".agenda").on("click", function(){
-	var currentState = $(this);
 
-	currentState.hide();
-	currentState.after("<textarea class='write-here'>" + currentState.text() + "</textarea>");
-//	$(".write-here").val(save);
-	$(".write-here").focus();
+// $(".day1").prepend(weekArray[0]);
+// $(".day2").prepend(weekArray[1]);
+// $(".day3").prepend(weekArray[2]);
+// $(".day4").prepend(weekArray[3]);
+// $(".day5").prepend(weekArray[4]);
+// $(".day6").prepend(weekArray[5]);
+// $(".day7").prepend(weekArray[6]);
+
+
+
+var weekArray = ["Sunday ", "Monday ", "Tuesday ", "Wednesday ", "Thursday ", "Friday ", "Saturday "];
+
+var findDay = function(daysFromToday) {
+	var getToday = new Date();
+	// console.log("today ", getToday);
+	var date = getToday.setDate(getToday.getDate() + daysFromToday);
+ 	//console.log("Date ", date);
+	var arrayIndex = getToday.getDay();
+	var dayName = weekArray[arrayIndex];
+	return dayName;
+};
+
+console.log("Find Day", findDay(0), findDay(1), findDay(2), findDay(25));
+
+$(".day1").append(findDay(0));
+$(".day2").append(findDay(1));
+$(".day3").append(findDay(2));
+$(".day4").append(findDay(3));
+$(".day5").append(findDay(4));
+$(".day6").append(findDay(5));
+$(".day7").append(findDay(6));
+$(".day8").append(findDay(7));
+$(".day9").append(findDay(8));
+$(".day10").append(findDay(9));
+$(".day11").append(findDay(10));
+$(".day12").append(findDay(11));
+$(".day13").append(findDay(12));
+$(".day14").append(findDay(13));
+
+$(document).on("click", ".span-button", function(){
+//	 var button = $(this);
+	$(this).parent().find("ul").append("<li><input type='text'></li>");
+	console.log($(this));
 });
 
-$(document).on("blur", ".write-here", function(){
-	console.log("Test", $(this));
 
-	$(this).hide();
-	var newSave = $(".write-here").val();
-	console.log("newSave", newSave);
-//	$(this).before(newSave);
-	var listitem = $(this).siblings(".agenda");
-	listitem.show();
-	listitem.text(newSave);
-	console.log(listitem);
-//	$(".agenda").text(newSave);
-//	$(".agenda").after(newSave);
-
-
-// $( ".day1" ).text(function( index ) {
-//   return "item number " + ( index + 1 );
-// });
-
-
-
-
-
-});
-
-
-
-// var weekArray = ["Sun  ", "Mon  ", "Tues ", "Wed  ", "Thurs", "Fri  ", "Sat"];
-// var getToday = new Date();
-// //getToday.setDate(getToday.getDate() + 1);
-
-// //var date =
-//  getToday.setDate(getToday.getDate() + 0);
-// //console.log("Date ", date);
-// var arrayIndex = getToday.getDay();
-// var dayName = weekArray[arrayIndex];
-
-// console.log("today ", getToday);
-
-// $(".day1").append(dayName);
-// $(".day2").append();
-// $(".day3").append();
-// $(".day4").append();
-// $(".day5").append();
-// $(".day6").append();
-// $(".day7").append();
